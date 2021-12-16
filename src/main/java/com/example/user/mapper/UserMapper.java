@@ -23,5 +23,14 @@ public interface UserMapper {
     * */
     User findByUsername(String account);
 
-   public  User getUser(User user);
+    //登录
+    User getUser(User user);
+
+    //找邮箱
+    User findEmail(String email);
+
+    //找用户邮箱或者账号
+    User findDetail(User user);
+
+
 }

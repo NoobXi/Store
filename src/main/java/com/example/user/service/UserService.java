@@ -13,5 +13,11 @@ public interface UserService {
     void register(User user);
 
     //登录
-    public User login(User user);
+    User login(User user);
+
+    //忘记密码操作
+    User forget(User user);
+
+    //修改密码
+
 }

@@ -14,7 +14,7 @@
         <result column="salt" property="salt"></result>
     </resultMap>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true" parameterType="com.example.user.entity.User">
         insert into user(account,password,email,mibao,mibaoVal,permission) values
         (#{account},#{password},#{email},#{mibao},#{mibaoVal},#{permission})
     </insert>
@@ -25,4 +25,11 @@
     <select id="getUser" resultType="com.example.user.entity.User" parameterType="com.example.user.entity.User">
         select * from user where account=#{account} and password=#{password}
     </select>
+    <select id="findEmail" resultType="com.example.user.entity.User" parameterType="com.example.user.entity.User">
+        select * from user where email=#{email}
+    </select>
+    <select id="findDetail" resultMap="UserMap">
+        select * from user where account=#{account} and email=#{email} and mibao=#{mibao} and mibaoVal=#{mibaoVal}
+    </select>
+
 </mapper>
